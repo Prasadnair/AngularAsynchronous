@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Procedural Approach</h1>
+    <div *ngIf='users'>
+      <select class="form-select form-select-lg form-control"
+              (change)="onSelectedx($any($event.target).value)">
+        <option value="">--Select a user--</option>
+        <option *ngFor="let user of users"
+                [value]="user.id">{{ user.name }}</option>
+      </select>
+    </div>
+  
+    <div *ngIf="selectedUser && todo">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Title</th>
+            <th>Completed?</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let todo of todo">
+          <tr>
+            <td>{{ selectedUser.name }}</td>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.completed }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
